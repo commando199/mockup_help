@@ -608,3 +608,5 @@ def praxis_home(request):
     return render(request, 'accounts/praxis-home.html', context)
 
 
+def account_page(request):
+    return render(request, 'accounts/account.html', {'shipping_info': ShippingInfo.objects.all()})

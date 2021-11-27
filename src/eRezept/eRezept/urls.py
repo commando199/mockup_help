@@ -38,4 +38,5 @@ urlpatterns = [
     path('medikamentauswahl/', views.past_shippings, name='medikamentauswahl'),
     path('list/', views.list, name="list"),
     path('praxis/', views.praxis_home, name='praxis-home'),
+    path('account/', views.account_page, name='account-page'),
 ]

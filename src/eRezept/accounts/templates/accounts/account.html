@@ -1,0 +1,170 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://use.fontawesome.com/a7e30d53f1.js"></script>
+<style>
+body {
+  font-family: Arial;
+  font-size: 17px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+  margin-top : 30px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-30 {
+  -ms-flex: 33%; /* IE10 */
+  flex: 33%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-30,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+input[type=number] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type=date] {
+  margin-bottom: 20px;
+  padding: 11px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+
+</style>
+</head>
+
+
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <form action="/" method="post" id="systemForm" style="height:90%;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Home</button>
+
+    </form>
+     <form action="/medikamentauswahl/" style="margin-left:10px;">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Confirmed Shippings</button>
+    </form>
+     <form action="/account/" style="margin-left:10px;">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Account</button>
+    </form>
+    <span style="position:absolute; right:10%;" class="hello-msg">Willkommen, {{request.user}}</span>
+    <form style="position:absolute;width:9%;  right:1%;" action="/logout/" method="post" id="systemForm">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Ausloggen</button>
+
+    </form>
+
+
+</nav>
+
+<ul class="list-group list-group-flush">
+    {% for entry in shipping_info %}
+        <li class="list-group-item">
+            <h3>Order {{ entry.id }}</h3>
+            <p><b>Name Sender:</b> {{ entry.name_sender }}</p>
+            <p><b>Email Sender:</b> {{ entry.email_sender }}</p>
+            <p><b>Address Sender:</b> {{ entry.address_sender }}</p>
+            <p><b>City Sender:</b> {{ entry.city_sender }}</p>
+            <p><b>State Sender:</b> {{ entry.state_sender }}</p>
+            <p><b>Zip Sender:</b> {{ entry.zip_sender }}</p>
+        </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
