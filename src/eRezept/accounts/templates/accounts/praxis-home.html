@@ -139,6 +139,9 @@ span.price {
      <form action="/medikamentauswahl/" style="margin-left:10px;">
         <button type="submit" class="btn btn-primary btn-lg btn-block">Confirmed Shippings</button>
     </form>
+     <form action="/account/" style="margin-left:10px;">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Account</button>
+    </form>
     <span style="position:absolute; right:10%;" class="hello-msg">Willkommen, {{request.user}}</span>
     <form style="position:absolute;width:9%;  right:1%;" action="/logout/" method="post" id="systemForm">
         {% csrf_token %}
