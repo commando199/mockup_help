@@ -181,22 +181,22 @@ span.price {
              <div class="col-30">
             <h3>Receiver Address</h3>
             <label for="name_receiver"><i class="fa fa-user"></i> Name</label>
-            <input required type="text" id="name_receiver" name="name_receiver" placeholder="John M. Doe">
+              <p id="name_receiver" style="margin-bottom: 31px; margin-top: 25px">John M. Doe</p>
             <label for="email_receiver"><i class="fa fa-envelope"></i> Email</label>
-            <input required type="text" id="email_receiver"name="email_receiver" placeholder="john@example.com">
+              <p id="email_receiver" style="margin-bottom: 31px; margin-top: 25px">john@example.com</p>
             <label for="address_receiver"><i class="fa fa-address-card-o"></i> Address</label>
-            <input required type="text" id="address_receiver" name="address_receiver" placeholder="542 W. 15th Street">
+              <p id="address_receiver" style="margin-bottom: 31px; margin-top: 25px">542 W. 15th Street</p>
             <label for="city_receiver"><i class="fa fa-institution"></i> City</label>
-            <input required type="text" id="city_receiver" name="city_receiver" placeholder="New York">
+              <p id="city_receiver" style="margin-bottom: 31px; margin-top: 25px">New York</p>
 
             <div class="row" style="padding-top:0px;margin-top:0px;">
               <div class="col-50">
                 <label for="state">State</label>
-                <input required type="text" id="state_receiver" name="state_receiver" placeholder="NY">
+                <p id="state" style="margin-top: 25px">NY</p>
               </div>
               <div class="col-50">
-                <label for="zip">Zip</label>
-                <input required type="number" id="zip_receiver" name="zip_receiver" placeholder="10001">
+                <label for="zip_receiver">Zip</label>
+                <p id="zip_receiver" style="margin-top: 25px">10001</p>
               </div>
             </div>
           </div>
@@ -207,33 +207,45 @@ span.price {
               <div class="row" style="padding-top:0px;margin-top:0px;">
               <div class="col-50">
                <label for="number_pallets"><i class="fa fa-hashtag"></i> Number of Pallets</label>
-            <input required type="number" id="number_pallets" name="number_pallets" placeholder="John M. Doe">
+                <p id="number_pallets" style="margin-bottom: 31px;margin-top: 25px">120</p>
               </div>
               <div class="col-50">
            <label for="weight"><i class="fa fa-balance-scale"></i> Weight</label>
-            <input required type="number" id="weight" name="weight" placeholder="john@example.com">
+                <p id="weight" style="margin-bottom: 31px;margin-top: 25px">1230</p>
               </div>
             </div>
 
               <div class="row" style="padding-top:0px;margin-top:0px;">
               <div class="col-50" style="flex:50%">
                <label for="stackable"><i class="fa fa-bars"></i> Stackable</label>
-            <input required type="number" id="stackable" name="stackable" placeholder="542 W. 15th Street">
+                <p id="stackable" style="margin-bottom: 31px;margin-top: 25px">1</p>
               </div>
               <div class="col-50" style="flex:50%">
-           <label for="date_delivery" style="width:90%"><i class="fa fa-calendar-o   "></i> Delivery Date</label>
-            <input required type="date" id="date_delivery" name="tanggal" style="width:100%" placeholder="New York">
+           <label for="deadline" style="width:90%"><i class="fa fa-calendar-o   "></i> Deadline</label>
+                <p id="deadline" class="text-danger" style="margin-bottom: 31px;margin-top: 25px">31.12.2025</p>
+<!--                  TODO important?-->
+              </div>
+            </div>
+
+ <div class="row" style="padding-top:0px;margin-top:0px;">
+              <div class="col-50" >
+                <label for="from_date"><i class="fa fa-calendar-o"></i> FROM</label>
+                <input type="text" id="from_date" name="state" placeholder="26.11.2021">
+              </div>
+              <div class="col-50" >
+                <label for="until_date"><i class="fa fa-calendar-o" aria-hidden="true"></i> UNTIL</label>
+                <input type="text" id="until_date" name="loading_meters" placeholder="26.11.2021">
               </div>
             </div>
 
  <div class="row" style="padding-top:0px;margin-top:0px;">
               <div class="col-50" >
                 <label for="state"><i class="fa fa-exclamation-triangle"></i> Dangerous Goods</label>
-                <input type="text" id="state" name="state" placeholder="NY">
+                <p id="state" style="margin-bottom: 31px;margin-top: 25px">False</p>
               </div>
               <div class="col-50" >
                 <label for="loading_meters"><i class="fa fa-minus" aria-hidden="true"></i> Loading Meters</label>
-                <input type="text" id="loading_meters" name="loading_meters" placeholder="6.2">
+                <p id="loading_meters" style="margin-bottom: 31px;margin-top: 25px">8.4</p>
               </div>
             </div>
 
@@ -245,7 +257,7 @@ span.price {
   margin-bottom: 20px;
   padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 3px;height:154px;" id="cargo_description" name="cargo_description"> </textarea>
+  border-radius: 3px;height:50px;" id="cargo_description" name="cargo_description"> </textarea>
               </div>
 
             </div>

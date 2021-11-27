@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
+from django.utils.timezone import datetime
 from .managers import CustomUserManager, CustomPraxisManager
 
 
@@ -318,25 +319,27 @@ class shipping_optimized(models.Model):
 
 class ShippingInfo(models.Model):
     email_sender = models.EmailField(_('email address'), unique=False)
-    email_receiver = models.EmailField(_('email address'), unique=False)
+    email_receiver = models.EmailField(_('email address'), unique=False, default='john@example.com', null=True, blank=True)
     name_sender = models.CharField(max_length=50)
-    name_receiver = models.CharField(max_length=50)
+    name_receiver = models.CharField(max_length=50, default='John M. Doe', null=True, blank=True)
     address_sender = models.CharField(max_length=50)
-    address_receiver = models.CharField(max_length=50)
+    address_receiver = models.CharField(max_length=50, default='542 W. 15th Street', null=True, blank=True)
     city_sender = models.CharField(max_length=50)
-    city_receiver = models.CharField(max_length=50)
+    city_receiver = models.CharField(max_length=50, default='New York', null=True, blank=True)
     already_optimized = models.BooleanField(default = False)
     zip_sender = models.IntegerField()
-    zip_receiver = models.IntegerField()
+    zip_receiver = models.IntegerField(default=10001, null=True, blank=True)
     state_sender = models.CharField(max_length=2)
-    state_receiver = models.CharField(max_length=2)
-    number_pallets = models.IntegerField()
-    loading_meters = models.DecimalField(max_digits=6, decimal_places=3)
-    dangerous_goods = models.BooleanField()
-    cargo_description = models.CharField(max_length=400)
-    weight = models.IntegerField()
-    stackable = models.IntegerField()
+    state_receiver = models.CharField(max_length=2, default='NY', null=True, blank=True)
+    number_pallets = models.IntegerField(default=120, null=True, blank=True)
+    loading_meters = models.DecimalField(max_digits=6, decimal_places=3, default=8.4, null=True, blank=True)
+    dangerous_goods = models.BooleanField(default=False, null=True, blank=True)
+    cargo_description = models.CharField(max_length=400, blank=True, null=True)
+    weight = models.IntegerField(default=1230, null=True, blank=True)
+    stackable = models.IntegerField(default=1, null=True, blank=True)
+    #TODO replace with this line
     date_delivery = models.DateTimeField(default=timezone.now)
+    # deadline = models.DateField(default='2025-12-31')
     latitude_sender = models.DecimalField(
         max_digits=9, decimal_places=6, blank=True, default='0')
     longitude_sender = models.DecimalField(
@@ -345,6 +348,11 @@ class ShippingInfo(models.Model):
         max_digits=9, decimal_places=6, blank=True, default='0')
     longitude_receiver = models.DecimalField(
         max_digits=9, decimal_places=6, blank=True, default='0')
+    #TODO add following lines
+    # max_truck_height = models.IntegerField()
+    # ramp_height = models.IntegerField()
+    # from_date = models.DateField(verbose_name='From', null=True, blank=True)
+    # until_date = models.DateField(verbose_name='Until', null=True, blank=True)
 
 
 

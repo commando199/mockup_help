@@ -604,6 +604,7 @@ def praxis_home(request):
             print(form.errors.as_data())
 
     context['form'] = form
+    context_better = {'form': form, }
     return render(request, 'accounts/praxis-home.html', context)
 
 
