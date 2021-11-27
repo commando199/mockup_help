@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html style="height:100%;">
+
+<head>
+    <title>My Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{%  static 'register_style.css' %}">
+</head>
+<body style="height:100%;">
+<div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+
+        <div class="user_card">
+            {% for message in messages %}
+            <p class="alert-{{ message.tags }}" style="border-radius:8px; text-align: center;">{{message}}</p>
+            {% endfor %}
+            <div class="d-flex justify-content-center">
+
+
+                <h3 id="form-title">LOGIN</h3>
+            </div>
+
+            <div class="d-flex justify-content-center form_container">
+                <!-- form übernimmt felder und postet es -->
+                <form method="POST" action="" style="margin-bottom:6px;">
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-text"></span>
+                        </div>
+
+                        <input oninput="change_button()" type="text" id="email" name="email" placeholder="Email" class="form-control">
+                    </div>
+
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-text"></span>
+                        </div>
+
+                        <input oninput="change_button()" type="password" id="password" name="password" placeholder="Passwort" class="form-control">
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-3 login_container" style="width:100%;">
+                        <input class="btn login_btn" disabled type="submit" style="width:201.3px;" id="11" value="Login">
+                    </div>
+                </form>
+
+            </div>
+
+            <div  style="width:61%; margin-left:19.5%;margin-right:19.5%;">
+
+        <form action="/recover/" method="get" id="systemForm3">
+                    {% csrf_token %}
+                    <button type="submit" class="btn login_btn">Passwort vergessen?</button>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
+
+<script>
+
+    function change_button(){
+    if(document.getElementById("password").value != "" && document.getElementById("email").value != ""){
+    document.getElementById("11").disabled = false;
+    }
+    if(document.getElementById("password").value == "" || document.getElementById("email").value == ""){
+    document.getElementById("11").disabled = true;
+    }
+    }
+
+</script>

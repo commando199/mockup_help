@@ -1,0 +1,26 @@
+<!-- übernimmt deisgn von main und status -->
+{%  extends 'accounts/main.html' %}
+{% block content %}
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{%  static 'images.css' %}"/>
+</head>
+
+<div class="image-grid" style="padding-top:2%">
+  <img  style='border:3px solid #000000; cursor: pointer;' onclick="location.href='http://127.0.0.1:8000/map_all/'" class="image-grid-col-2 image-grid-row-2" src="http://katossky.github.io/img/2016-06-03-eurovelo-network.png" alt="architecture">
+  <img  style='border:3px solid #000000; cursor: pointer;' onclick="location.href='http://127.0.0.1:8000/kpis/'" src="https://www.news.srl/wp-content/uploads/2019/02/KPI.png" alt="architecture">
+  <img style='border:3px solid #000000; cursor: pointer;' onclick="location.href='http://127.0.0.1:8000/liste_shippings/'" src="https://d2j6dbq0eux0bg.cloudfront.net/images/38354153/1717236768.jpg" alt="architecture">
+  <img style='border:3px solid #000000; cursor: pointer;' onclick="location.href='http://127.0.0.1:8000/list/'" src="https://icon-library.com/images/archives-icon/archives-icon-4.jpg" alt="architecture">
+  <img style='border:3px solid #000000; cursor: pointer;' onclick="location.href='http://127.0.0.1:8000/chatbot/'" src="https://cdn.technologyadvice.com/wp-content/uploads/2018/02/friendly-chatbot.jpg" alt="architecture">
+</div>
+
+
+
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+{% endblock %}

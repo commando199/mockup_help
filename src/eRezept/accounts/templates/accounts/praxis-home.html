@@ -1,0 +1,302 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://use.fontawesome.com/a7e30d53f1.js"></script>
+<style>
+body {
+  font-family: Arial;
+  font-size: 17px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+  margin-top : 30px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-30 {
+  -ms-flex: 33%; /* IE10 */
+  flex: 33%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-30,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+input[type=number] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type=date] {
+  margin-bottom: 20px;
+  padding: 11px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+
+</style>
+</head>
+
+
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <form action="/" method="post" id="systemForm" style="height:90%;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Home</button>
+
+    </form>
+     <form action="/medikamentauswahl/" style="margin-left:10px;">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Confirmed Shippings</button>
+    </form>
+    <span style="position:absolute; right:10%;" class="hello-msg">Willkommen, {{request.user}}</span>
+    <form style="position:absolute;width:9%;  right:1%;" action="/logout/" method="post" id="systemForm">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Ausloggen</button>
+
+    </form>
+
+
+</nav>
+<div class="row" style="width:100%">
+  <div class="col-75" style="width:100%">
+    <div class="container" style="width:100%; max-width:1400px">
+
+      <form action="" method="POST" id="regForm" style="width:100%">
+{% csrf_token %}
+        <div class="row">
+          <div class="col-30">
+            <h3>Sender Address</h3>
+            <label for="name_sender"><i class="fa fa-user"></i> Name</label>
+            <input required type="text" id="name_sender" name="name_sender" placeholder="John M. Doe">
+            <label for="email_sender"><i class="fa fa-envelope"></i> Email</label>
+            <input required type="text" id="email_sender" name="email_sender" placeholder="john@example.com">
+            <label for="address_sender"><i class="fa fa-address-card-o"></i> Address</label>
+            <input required type="text" id="address_sender" name="address_sender" placeholder="542 W. 15th Street">
+            <label for="city_sender"><i class="fa fa-institution"></i> City</label>
+            <input required type="text" id="city_sender" name="city_sender" placeholder="New York">
+
+            <div class="row" style="padding-top:0px;margin-top:0px;">
+              <div class="col-50">
+                <label for="state">State</label>
+                <input required type="text" id="state_sender" name="state_sender" placeholder="NY">
+              </div>
+              <div class="col-50">
+                <label for="zip">Zip</label>
+                <input required type="number" id="zip_sender" name="zip_sender" placeholder="10001">
+              </div>
+            </div>
+          </div>
+
+             <div class="col-30">
+            <h3>Receiver Address</h3>
+            <label for="name_receiver"><i class="fa fa-user"></i> Name</label>
+            <input required type="text" id="name_receiver" name="name_receiver" placeholder="John M. Doe">
+            <label for="email_receiver"><i class="fa fa-envelope"></i> Email</label>
+            <input required type="text" id="email_receiver"name="email_receiver" placeholder="john@example.com">
+            <label for="address_receiver"><i class="fa fa-address-card-o"></i> Address</label>
+            <input required type="text" id="address_receiver" name="address_receiver" placeholder="542 W. 15th Street">
+            <label for="city_receiver"><i class="fa fa-institution"></i> City</label>
+            <input required type="text" id="city_receiver" name="city_receiver" placeholder="New York">
+
+            <div class="row" style="padding-top:0px;margin-top:0px;">
+              <div class="col-50">
+                <label for="state">State</label>
+                <input required type="text" id="state_receiver" name="state_receiver" placeholder="NY">
+              </div>
+              <div class="col-50">
+                <label for="zip">Zip</label>
+                <input required type="number" id="zip_receiver" name="zip_receiver" placeholder="10001">
+              </div>
+            </div>
+          </div>
+
+
+            <div class="col-30">
+            <h3>Shipping Information</h3>
+              <div class="row" style="padding-top:0px;margin-top:0px;">
+              <div class="col-50">
+               <label for="number_pallets"><i class="fa fa-hashtag"></i> Number of Pallets</label>
+            <input required type="number" id="number_pallets" name="number_pallets" placeholder="John M. Doe">
+              </div>
+              <div class="col-50">
+           <label for="weight"><i class="fa fa-balance-scale"></i> Weight</label>
+            <input required type="number" id="weight" name="weight" placeholder="john@example.com">
+              </div>
+            </div>
+
+              <div class="row" style="padding-top:0px;margin-top:0px;">
+              <div class="col-50" style="flex:50%">
+               <label for="stackable"><i class="fa fa-bars"></i> Stackable</label>
+            <input required type="number" id="stackable" name="stackable" placeholder="542 W. 15th Street">
+              </div>
+              <div class="col-50" style="flex:50%">
+           <label for="date_delivery" style="width:90%"><i class="fa fa-calendar-o   "></i> Delivery Date</label>
+            <input required type="date" id="date_delivery" name="tanggal" style="width:100%" placeholder="New York">
+              </div>
+            </div>
+
+ <div class="row" style="padding-top:0px;margin-top:0px;">
+              <div class="col-50" >
+                <label for="state"><i class="fa fa-exclamation-triangle"></i> Dangerous Goods</label>
+                <input type="text" id="state" name="state" placeholder="NY">
+              </div>
+              <div class="col-50" >
+                <label for="loading_meters"><i class="fa fa-minus" aria-hidden="true"></i> Loading Meters</label>
+                <input type="text" id="loading_meters" name="loading_meters" placeholder="6.2">
+              </div>
+            </div>
+
+
+            <div class="row" style="padding-top:0px;margin-top:0px;height:26.5%;">
+              <div class="col-50" style="height:100%;">
+                <label for="state"><i class="fa fa-comment" aria-hidden="true"></i> Description</label>
+                  <textarea style=" width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;height:154px;" id="cargo_description" name="cargo_description"> </textarea>
+              </div>
+
+            </div>
+
+
+
+          </div>
+
+
+        </div>
+        <label>
+          <input  type="checkbox" checked="checked" name="sameadr"> Save information to reuse
+        </label>
+        <input type="submit" value="Send" class="btn">
+      </form>
+
+        <form action="/praxis/" method="get" id="systemForm" style="padding-bottom:5px;">
+                {% csrf_token %}
+                <button
+                        class="btn btn-primary btn-lg btn-block" style="background-color:red">Reset
+                </button>
+
+            </form>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
+<script type="text/javascript">
+window.onload = function() {
+if('{{copied_shipment}}'!=0){
+document.getElementById("name_receiver").value= '{{copied_shipment.name_receiver}}';
+document.getElementById("name_sender").value= '{{copied_shipment.name_sender}}';
+document.getElementById("email_sender").value= '{{copied_shipment.email_sender}}';
+document.getElementById("address_sender").value= '{{copied_shipment.address_sender}}';
+document.getElementById("address_receiver").value= '{{copied_shipment.address_receiver}}';
+document.getElementById("email_receiver").value= '{{copied_shipment.email_receiver}}';
+document.getElementById("city_sender").value= '{{copied_shipment.city_sender}}';
+document.getElementById("city_receiver").value= '{{copied_shipment.city_receiver}}';
+document.getElementById("zip_sender").value= '{{copied_shipment.zip_sender}}';
+document.getElementById("zip_receiver").value= '{{copied_shipment.zip_receiver}}';
+document.getElementById("number_pallets").value= '{{copied_shipment.number_pallets}}';
+document.getElementById("weight").value= '{{copied_shipment.weight}}';
+document.getElementById("stackable").value= '{{copied_shipment.stackable}}';
+document.getElementById("date_delivery").value= '{{copied_shipment.date_delivery}}';
+document.getElementById("state_sender").value= '{{copied_shipment.state_sender}}';
+document.getElementById("state_receiver").value= '{{copied_shipment.state_receiver}}';
+}
+}
+
+
+</script>

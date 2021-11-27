@@ -1,0 +1,168 @@
+.user_card {
+			width: 60%;
+			margin-top: 120px;
+			margin-bottom: auto;
+			background: #9cb8ba;
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			padding: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+
+		}
+
+.button_card {
+			width: 30%;
+			margin-top: 690px;
+			background: #9cb8ba;
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			padding: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+
+		}
+		#myUL {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+#myInput {
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  font-weight: regular;
+  color: black; /* Add a black text color */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+#myDiv {
+  background-repeat: no-repeat;
+  border: 1px solid #ddd;
+  height: 50px;
+  background-color: #2a2a3b;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px
+  width: 100%;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: regular;
+  color: #f0f0f5;
+  border: 1px solid #ddd;
+}
+#myUL li a {
+  border: 1px solid #ddd; /* Add a border to all links */
+  height: 50px;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6; /* Grey background color */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  color: black; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #B6D8D4; /* Add a hover effect to all links, except for headers */
+}
+
+#myUL li a:focus {
+  background: #749793;
+}
+
+.column {
+    float: left;
+    width: 32.6%;
+    margin-left:2%;
+}
+.column1 {
+    float: left;
+    width: 32.6%;
+    margin-left:2%;
+}
+
+.column2 {
+    float: left;
+    width: 50%;
+}
+
+
+ .popup {
+	background-color: rgba(0, 0, 0, 0.8);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+.popup-content {
+	height: 800px;
+	width: 700px;
+	background-color: white;
+	text-align: center;
+	padding: 20px;
+	position: relative;
+	border-radius: 4px;
+}
+
+
+.close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 42px;
+	color: #333;
+	transform: rotate(45deg);
+	cursor: pointer;
+	&:hover {
+		color: #666;
+	}
+.popup1 {
+	background-color: rgba(0, 0, 0, 0.8);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+.popup-content1 {
+	height: 800px;
+	width: 700px;
+	background-color: white;
+	text-align: center;
+	padding: 20px;
+	position: relative;
+	border-radius: 4px;
+}
+
+
+.close1 {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 42px;
+	color: #333;
+	transform: rotate(45deg);
+	cursor: pointer;
+	&:hover {
+		color: #666;
+	}
+}

@@ -1,0 +1,30 @@
+<style>
+  .hello-msg{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+  }
+
+</style>
+<!-- navbar mit wilkommenmessage, logoutbutton und dashboard button-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <form action="/" method="post" id="systemForm" style="height:90%;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Home</button>
+
+    </form>
+     <form action="/liste_shippings/" style="margin-left:10px;">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Listenansicht</button>
+    </form>
+    <form action="/optimize/" style="margin-left:10px;">
+        <button type="submit" value="" class="btn btn-primary btn-lg btn-block">Optimize</button>
+    </form>
+    <span style="position:absolute; right:10%;" class="hello-msg">Willkommen, {{request.user}}</span>
+    <form style="position:absolute;width:9%;  right:1%;" action="/logout/" method="post" id="systemForm">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Ausloggen</button>
+
+    </form>
+
+
+</nav>

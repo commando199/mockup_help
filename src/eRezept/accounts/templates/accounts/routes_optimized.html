@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {{map.header.render|safe}}
+	<style type="text/css">
+    html, body {
+        height:100%
+    }
+    #map {
+        height:93.8%;
+        margin-top:58px;
+        overflow: hidden;
+    }
+</style>
+	   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+
+{% include 'accounts/navbar_praxis.html' %}
+<div class="container-fluid">
+    {% block content %}
+
+
+{% endblock %}
+</div>
+
+{% if map %}
+<div id="map">{{map.html.render|safe}}</div>
+
+  	<script>
+    	{{map.script.render|safe}}
+  	</script>
+	{% endif %}
+
+</body>
+</html>

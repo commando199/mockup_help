@@ -1,0 +1,155 @@
+{%  extends 'accounts/main.html' %}
+{% block content %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href= "{%  static 'style.css' %}"/>
+</head>
+
+<div class="container h-100">
+    <div class="d-flex justify-content-center h-100" style="mragin-bottom:10%">
+
+        <div class="user_card" style="height:auto;max-height:70%;margin-bottom:10%; width:80%">
+
+
+<input type="text" id="myInput" onkeyup="search()" placeholder="Shippings" name="patientensuche" autocomplete="off">
+
+            <ul id="myUL1" style=" height:100% overflow-y: auto; background-color:black;pointer-events: none;padding:0px;">
+<li><a href="#" tabindex="1"  style="background-color:black; border-color:black;padding:0px;height:50px;"><div class="container" style="width: 100%; color:white;padding:0px;margin:0px;min-width:100%;max-width:100%">
+                <div class="column5" style="width:4%;height:100%;padding-top:12px;"> ID</div>
+                <div class="column5" style="width:15%;height:100%;padding-top:12px;"> Sender Address</div>
+                <div class="column5" style="width:8%;height:100%;padding-top:12px;"> City</div>
+                <div class="column5" style="width:6%;height:100%;padding-top:12px;"> ZIP</div>
+                <div class="column5" style="width:15%;height:100%;padding-top:12px;"> Receiver Address</div>
+                <div class="column5" style="width:8%;height:100%;padding-top:12px;"> City</div>
+                <div class="column5" style="width:6%;height:100%;padding-top:12px;"> ZIP</div>
+                <div class="column5" style="width:5%;height:100%;padding-top:12px;"> _</div>
+                <div class="column5" style="width:5%;height:100%;padding-top:12px;"> #</div>
+    <div class="column5" style="width:5%;height:100%;padding-top:12px;"> L. Meter</div>
+                <div class="column5" style="width:5%;height:100%;padding-top:12px;"> Weight</div>
+
+                <div class="column5" style="width:6%;height:100%;padding-top:12px;">D. Goods</div>
+</div> </a></li>
+           </ul>
+<ul id="myUL" style=" overflow-y: overlay;padding:0px; ">
+    {% for item in medikamente %}
+     <li><a href="#" tabindex="1" style="padding:0px;height:50px;" onclick="open_popup('{{item.id_shipping_first}}','{{item.id_shipping_second}}')"><div class="container" style="width: 100%; height:100%;padding:0px;margin:0px;min-width:100%;max-width:100%">
+        <div class="column5" style="width:4%;box-shadow:  2px 0px 0px 0px black; height:100%;padding-top:12px;"> {{item.id}} </div>
+         <div class="column5" style="width:15%;box-shadow:  2px 0px 0px 0px black; height:100%;padding-top:12px;overflow-y:auto;overflow-x:hidden"> {{item.address_sender}} </div>
+         <div class="column5" style="width:8%;box-shadow:  2px 0px 0px 0px black; height:100%;padding-top:12px;overflow-y:auto;overflow-x:hidden"> {{item.city_sender}} </div>
+         <div class="column5" style="width:6%;box-shadow:  2px 0px 0px 0px black; height:100%;padding-top:12px;"> {{item.zip_sender}} </div>
+         <div class="column5" style="width:15%;box-shadow:  2px 0px 0px 0px black; height:100%;padding-top:12px;overflow-y:auto;overflow-x:hidden"> {{item.address_receiver}} </div>
+         <div class="column5" style="width:8%;box-shadow:  2px 0px 0px 0px black; height:100%;padding-top:12px;overflow-y:auto;overflow-x:hidden"> {{item.city_receiver}} </div>
+         <div class="column5" style="width:6%;box-shadow:  2px 0px 0px 0px black; height:100%;padding-top:12px;"> {{item.zip_receiver}} </div>
+         <div class="column5" style="width:5%;box-shadow:  2px 0px 0px 0px black; height:100%;padding-top:12px;"> {{item.stackable}} </div>
+         <div class="column5" style="width:5%;box-shadow:  2px 0px 0px 0px black; height:100%;padding-top:12px;"> {{item.number_pallets}} </div>
+         <div class="column5" style="width:5%;box-shadow:  2px 0px 0px 0px black; height:100%;padding-top:12px;"> {{item.loading_meters}} </div>
+         <div class="column5" style="width:5%;box-shadow:  2px 0px 0px 0px black; height:100%;padding-top:12px;"> {{item.weight}} </div>
+         <div class="column5" style="width:6%; height:100%;padding-top:12px;"> {{item.dangerous_goods}} </div>
+
+</div> </a></li>
+        {% endfor %}
+</ul>
+
+	</div>
+
+
+
+
+
+
+<div class="popup1" style="background-color: rgba(0, 0, 0, 0.8);width: 100%;margin-left:-15px;
+ height: 100%; position: absolute; top: 0; display: none; justify-content: center; align-items: center;">
+    <input id="variable" style="display:none;" value="">
+    <div class="popup-content1" style="height: 300px; width: 600px; background-color: white; text-align: center;
+	padding: 20px; position: relative; border-radius: 4px;">
+        <div class="close1" style="position: absolute; top: 10px; right: 10px; font-size: 42px;
+	color: #333; transform: rotate(45deg); cursor: pointer; &:hover { color: #666;}">+</div>
+        <div style="padding-top:50px;">
+       <form action="/detailed_past_shippings/" method="post" id="systemForm" >
+                {% csrf_token %}
+           <div name="shipping_id"></div>
+                <button type="submit" id="mybutton2" name="system" value="" class="btn btn-primary btn-lg btn-block">
+
+                </button>
+            </form>
+</div>
+    </div>
+</div>
+
+
+
+        </div>
+</div>
+
+
+
+</body>
+
+
+
+
+</html>
+
+
+
+<script>
+	/*
+funktion um die suche zu implementieren ist in der funktion genauer kommentiert
+*/
+
+function search() {
+  // Declare variables
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL");
+  li = ul.getElementsByTagName('li');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+function open_popup(id1,id2){
+if (id1==0) {
+document.getElementById('mybutton2').value = id2;
+var options = document.getElementById("mybutton2");
+options.innerHTML = "Past Shipping ID: " + id2;
+}
+else if (id2==0){
+document.getElementById('mybutton2').value = id1;
+var options = document.getElementById("mybutton2");
+options.innerHTML = "Past Shipping ID: " + id1;
+}
+else{
+document.getElementById('mybutton2').value = id1 + "," + id2;
+var options = document.getElementById("mybutton2");
+options.innerHTML = "Past Shipping IDs: " + id1 +", "+id2;
+
+}
+
+document.querySelector('.popup1').style.display = "flex";
+}
+
+document.querySelector('.close1').addEventListener("click", function() {
+	document.querySelector('.popup1').style.display = "none";
+});
+
+
+
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+{% endblock %}

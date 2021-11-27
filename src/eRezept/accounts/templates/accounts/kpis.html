@@ -1,0 +1,91 @@
+<!-- übernimmt deisgn von main und status -->
+{%  extends 'accounts/main.html' %}
+{% block content %}
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+
+
+    #multiimage {
+  background: url(https://www.wallpaperboulevard.com/Images/product/emalia-light-green-texture-wallpaper-svbq.jpg);
+}
+
+
+    #imageonly {
+  background: url(https://www.wallpaperboulevard.com/Images/product/emalia-light-green-texture-wallpaper-svbq.jpg);
+}
+</style>
+    <link rel="stylesheet" type="text/css" href="{%  static 'kpis.css' %}"/>
+</head>
+<body>
+
+<div class="image-grid"  style="padding-top:0%; margin-top :1.5%; overflow: hidden; ">
+   <div  style='border:3px solid #000000; '  id="multiimage" class="image-grid-col-2 image-grid-row-2"  alt="architecture">
+      <br>
+      <br>
+      <br>
+      <div style="font-weight:bold; text-align: center;font-size:300%;"> THIS WEEK</div>
+ <br>
+      <br>
+      <br>
+      <div style="font-weight:bold;margin: auto; text-align: center; font-size:200%">Carbon Reduction: </div>
+ <br>
+     <div style="font-weight:bold;margin: auto; text-align: center; font-size:350%"> 40% </div>
+ <br>
+      <br>
+      <br>
+     <div style="font-weight:bold;margin: auto; text-align: center; font-size:200%"> Distance Reduction: </div>
+ <br>
+    <div style="font-weight:bold;   margin: auto; text-align: center; font-size:350%">  50% </div>
+      </div>
+
+
+    <div  style='border:3px solid #000000; '  id="multiimage" class="image-grid-col-2 image-grid-row-2"  alt="architecture">
+      <br>
+      <br>
+      <br>
+      <div style="font-weight:bold; text-align: center;font-size:300%;"> THIS MONTH</div>
+ <br>
+      <br>
+      <br>
+      <div style="font-weight:bold;margin: auto; text-align: center; font-size:200%">Carbon Reduction: </div>
+ <br>
+     <div style="font-weight:bold;margin: auto; text-align: center; font-size:350%"> 40% </div>
+ <br>
+      <br>
+      <br>
+     <div style="font-weight:bold;margin: auto; text-align: center; font-size:200%"> Distance Reduction: </div>
+ <br>
+    <div style="font-weight:bold;   margin: auto; text-align: center; font-size:350%">  50% </div>
+      </div>
+
+  <div  style='border:3px solid #000000; '  id="multiimage" class="image-grid-col-2 image-grid-row-2"  alt="architecture">
+      <br>
+      <br>
+      <br>
+      <div style="font-weight:bold; text-align: center;font-size:300%;"> THIS YEAR</div>
+ <br>
+      <br>
+      <br>
+      <div style="font-weight:bold;margin: auto; text-align: center; font-size:200%">Carbon Reduction: </div>
+ <br>
+     <div style="font-weight:bold;margin: auto; text-align: center; font-size:350%"> 12.1T / 43.2% </div>
+ <br>
+      <br>
+      <br>
+     <div style="font-weight:bold;margin: auto; text-align: center; font-size:200%"> Distance Reduction: </div>
+ <br>
+    <div style="font-weight:bold;   margin: auto; text-align: center; font-size:350%">  2132Km / 50% </div>
+      </div>
+</div>
+
+
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+{% endblock %}}
